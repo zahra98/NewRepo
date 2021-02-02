@@ -3,7 +3,6 @@ include 'LibraryTask1/vendor/autoload.php';
 include '/Applications/MAMP/htdocs/TrainingTasks/MyTask1/LibraryTask1/vendor/phpmailer/phpmailer/src/PHPMailer.php';
 include '/Applications/MAMP/htdocs/TrainingTasks/MyTask1/LibraryTask1/vendor/phpmailer/phpmailer/src/SMTP.php';
 use PHPMailer\PHPMailer\PHPMailer;
-
 function MailerConfig($useremail,$subject,$body)
 {
     $mail = new PHPMailer(true);

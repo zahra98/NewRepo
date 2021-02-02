@@ -31,7 +31,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                          $sql = "UPDATE users set user_password = '$newencrypted_password'  WHERE user_email = '$email' ";
                          if ($conn->query($sql) === TRUE) {
             
-                         header("Location: http://localhost:8888/TrainingTasks/MyTask1/LibraryTask1/Shared/View/LogIn.html");
+                         header("Location: ../View/LogIn.html");
                          exit();
                        
                          } else {

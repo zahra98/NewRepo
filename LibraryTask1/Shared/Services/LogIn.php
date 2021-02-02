@@ -19,7 +19,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
              }
              else{
                  echo "No match";
-                 header("Location: http://localhost:8888/TrainingTasks/library/LibraryTask1/Shared/View/LogIn.html");
+                 header("Location: ../View/LogIn.html");
                  exit();
              }
             }

@@ -22,7 +22,7 @@ if($_GET){
         $sql = "UPDATE users set confirmation = '1'  WHERE token = '$token' ";
      if ($conn->query($sql) === TRUE) {
         
-   header("Location: http://localhost:8888/TrainingTasks/MyTask1/LibraryTask1/Shared/View/LogIn.html");
+   header("Location: ../View/LogIn.html");
    exit();
        echo  "done";
      } else {
