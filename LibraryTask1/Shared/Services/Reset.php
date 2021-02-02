@@ -1,5 +1,6 @@
 <?php
 include 'Database.php';
+include 'MailerCnfg.php';
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
 $conn = OpenCon();
@@ -16,44 +17,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
   }
 
 else{
-$token = md5(time().$email);
-  require '/Applications/MAMP/htdocs/TrainingTasks/MyTask1/LibraryTask1/vendor/autoload.php';
-  require_once '/Applications/MAMP/htdocs/TrainingTasks/MyTask1/LibraryTask1/vendor/phpmailer/phpmailer/src/Exception.php';
-  require_once '/Applications/MAMP/htdocs/TrainingTasks/MyTask1/LibraryTask1/vendor/phpmailer/phpmailer/src/SMTP.php';
-  require_once '/Applications/MAMP/htdocs/TrainingTasks/MyTask1/LibraryTask1/vendor/phpmailer/phpmailer/src/PHPMailer.php';
-  $r = "zahraabuzahra4@gmail.com";
-  $mail = new PHPMailer(true);
-  try {
-    $mail->isSMTP();                                            // Send using SMTP
-    $mail->Host = "ssl://smtp.gmail.com"; 
-    $mail->SMTPAuth   = true;                                   // Enable SMTP authentication
-    $mail->Username   = 'zahraabuzahra4@gmail.com';                     // SMTP username
-    $mail->Password   = 'zahra0599527348';                               // SMTP password
-    $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;         // Enable TLS encryption; `PHPMailer::ENCRYPTION_SMTPS` encouraged
-    $mail->Port       = 465;                                    // TCP port to connect to, use 465 for `PHPMailer::ENCRYPTION_SMTPS` above
-    $mail->setFrom('zahraabuzahra4@gmail.com', 'Reset Password');
- 
-    $mail->addAddress($email);
-   
-    $mail->isHTML(true);
-  
-    $mail->Subject = 'Confirm email';
-   
-    $mail->Body = 'Reset your password:
-    <a href="http://localhost:8888/TrainingTasks/MyTask1/LibraryTask1/Shared/Services/NewPassword.php?email=' . $email . '"> Reset Password</a>';
-
-   if( $mail->send()){
-    $output = 'check your Email and follow the Reset link!';
-   }
-   else{
-    $output = 'something went rong';
-   }
-    
-} catch (Exception $e) {
- 
-    $output = $mail->ErrorInfo;
-}
-echo $output ;
+  $subject = 'Reset Email';
+  $body =   'Reset your password:
+  <a href="http://localhost:8888/TrainingTasks/MyTask1/LibraryTask1/Shared/Services/NewPassword.php?email=' . $email . '"> Reset Password</a>';
+  MailerConfig($email,$subject,$body);
 }
 }
 //validate the form data

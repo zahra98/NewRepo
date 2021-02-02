@@ -1,8 +1,9 @@
 <?php
 include 'Database.php';
+include 'Constents.php';
 $conn = OpenCon();
 session_start();
-$target_dir = "/Applications/MAMP/htdocs/TrainingTasks/MyTask1/LibraryTask1/images/";
+
 $target_file = $target_dir .basename($_FILES["fileToUpload"]["name"]);
 $uploadOk = 1;
 $imageFileType = strtolower(pathinfo($target_file,PATHINFO_EXTENSION));
@@ -45,7 +46,7 @@ if(isset($_POST["submit"])) {
       $Uid =  $_SESSION['user_id'];
       $sql = "UPDATE users set user_image = '$image_path'  WHERE user_id = '$Uid' ";
       if ($conn->query($sql) === TRUE) {
-         header("Location: http://localhost:8888/TrainingTasks/MyTask1/LibraryTask1/Shared/Services/LogIn.php");
+         header("Location: http://localhost:8888/TrainingTasks/library/LibraryTask1/Shared/Services/LogIn.php");
          exit();
       
           } else {

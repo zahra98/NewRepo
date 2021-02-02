@@ -19,7 +19,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
              }
              else{
                  echo "No match";
-                 header("Location: http://localhost:8888/TrainingTasks/MyTask1/LibraryTask1/Shared/View/LogIn.html");
+                 header("Location: http://localhost:8888/TrainingTasks/library/LibraryTask1/Shared/View/LogIn.html");
                  exit();
              }
             }
@@ -51,7 +51,7 @@ CloseCon($conn);
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.bundle.min.js"></script>
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
-    <link rel="stylesheet" href="/TrainingTasks/MyTask1/LibraryTask1/Shared/View/LogIn.css">
+    <link rel="stylesheet" href="/TrainingTasks/library/LibraryTask1/Shared/View/LogIn.css">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <style>
   .img{
