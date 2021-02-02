@@ -1,5 +1,6 @@
 <?php
-//$target_dir = "/Applications/MAMP/htdocs/TrainingTasks/MyTask1/LibraryTask1/images/";
-define("target_dir", "/Applications/MAMP/htdocs/TrainingTasks/MyTask1/LibraryTask1/images/");
+
+$target_dir ='/Applications/MAMP/htdocs/TrainingTasks/library/LibraryTask1/images/';
+
 
 ?>

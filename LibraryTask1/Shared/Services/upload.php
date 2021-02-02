@@ -3,9 +3,12 @@ include 'Database.php';
 include 'Constents.php';
 $conn = OpenCon();
 session_start();
+$target_file =  $target_dir .basename($_FILES["fileToUpload"]["name"]);
+$host_name = gethostbyaddr($_SERVER['REMOTE_ADDR']);
+echo $host_name;
+echo $port;
 
-$target_file = $target_dir .basename($_FILES["fileToUpload"]["name"]);
-$uploadOk = 1;
+$uploadOk = 1; 
 $imageFileType = strtolower(pathinfo($target_file,PATHINFO_EXTENSION));
 // Check if image file is a actual image or fake image
 if(isset($_POST["submit"])) {
@@ -40,7 +43,7 @@ if(isset($_POST["submit"])) {
   // if everything is ok, try to upload file
   } else {
     if (move_uploaded_file($_FILES["fileToUpload"]["tmp_name"], $target_file)) {
-        $path ="/TrainingTasks/MyTask1/LibraryTask1/images/";//to store in database
+        $path ="/TrainingTasks/library/LibraryTask1/images/";//to store in database
         $image_name = htmlspecialchars( basename( $_FILES["fileToUpload"]["name"])); 
         $image_path = $path . $image_name;
       $Uid =  $_SESSION['user_id'];
