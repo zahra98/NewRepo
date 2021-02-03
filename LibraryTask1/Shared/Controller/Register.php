@@ -31,7 +31,7 @@ VALUES ('$name' , '$email', '$phone','$address','$encrypted_password','0','$toke
 if ($conn->query($sql) === TRUE) {
   $subject = 'Confirm email';
   $body =   'Activate your email:
-      <a href="TrainingTasks/MyTask1/LibraryTask1/Shared/Services/verify-email.php?email=' . $r . 
+      <a href="TrainingTasks/MyTask1/LibraryTask1/Shared/Controller/verify-email.php?email=' . $r . 
   '&token=' . $token . '">Confirm email</a>';
   MailerConfig($email,$subject,$body);
 }
