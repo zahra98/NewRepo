@@ -29,6 +29,9 @@ tr:nth-child(even) {
 background-color: #dddddd;
 }
 
+.h{
+    padding: 15px;  
+}
 
 body {
     color: #000;

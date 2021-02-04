@@ -37,13 +37,15 @@
                         <div class="row mb-4 px-3">
                             <h6 class="mb-0 mr-4 mt-2">weather</h6>
                         </div>
-                        <div id="day"></div> <br>
-                        <div id="low"></div><br>
-                        <div id="high"></div><br>
-                        <div id="text"></div><br>
-                        <div id="code"></div><br>
-
-                        <form name='form1' >
+                        <div class="card card0 border-0"  id = "forcast">
+                        <h  id="day"></h> <br>
+                        <h id="low"></h><br>
+                        <h id="high"></h><br> 
+                        <h id="text"></h><br>
+                        <h id="code"></h><br>
+                        </div>
+                    <br>
+<br>                        <form name='form1' >
                             <div class="row px-3"> <label class="mb-1">
                                     <h6 class="mb-0 text-sm">longitude</h6>
                                 </label for="long" > <input class="mb-4" type="text" name="long" id = "long" placeholder="Enter your longitude">
@@ -73,7 +75,7 @@
         </div>
     </div>
 
-    <script src="http://code.jquery.com/jquery-3.1.1.min.js"></script>
+<script src="http://code.jquery.com/jquery-3.1.1.min.js"></script>
   <script type="text/javascript">
     $(function(){
         $("#saveusers").on('click', function(){
@@ -103,7 +105,10 @@
                 document.getElementById("low").innerHTML = 'Low:' +' '+low;
                 document.getElementById("text").innerHTML = 'Status:' +' '+text;
                 document.getElementById("code").innerHTML = 'Code:' +' '+code;
-              //$("#message").show(3000).html(str).addClass('success');
+                //$("forcast").show();
+            //   $("#day").show(3000).html(day).addClass('success');
+            //   $("#high").show(3000).html(high).addClass('success');
+
           });
        });
      });

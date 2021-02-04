@@ -47,37 +47,9 @@
              curl_setopt_array($ch, $options);
              $response = curl_exec($ch);
              curl_close($ch);
-             //echo json_encode($response);
+             
              echo $response;
-            // $return_data = json_decode($response);
-             //return  $return_data;
-// echo "<h> hello </h>";
-
-                            //     for ($x = 1; $x <= 7; $x++) {
-                            //     echo "<table >";
-                            //     echo "<tr>";
-                            //     echo "<th style='border=1px solid black' >". "day:". "</th>";
-                            //     echo "<th id = 'demo' style='border=1px solid black' >". $return_data -> forecasts[$x] -> day. "</th>";
-                            //     echo "</tr>";
-                            //     echo "<tr>";
-                            //     echo "<th style='border=1px solid black' >". "low:". "</th>";
-                            //     echo "<th style='border=1px solid black' >" . $return_data -> forecasts[$x] -> low . "</th>";
-                            //     echo "</tr>";
-                            //     echo "<tr>";
-                            //     echo "<th style='border=1px solid black' >". "High:". "</th>";
-                            //     echo "<th style='border=1px solid black' >" . $return_data -> forecasts[$x] -> high . "</th>";
-                            //     echo "</tr>";
-                            //     echo "<tr>";
-                            //     echo "<th style='border=1px solid black' >". "State:". "</th>";
-                            //     echo "<th style='border=1px solid black'>" . $return_data -> forecasts[$x] -> text . "</th>";
-                            //     echo "</tr>";
-                            //     echo "<tr>";
-                            //     echo "<th style='border=1px solid black' >". "code:". "</th>";
-                            //     echo "<th style='border=1px solid black'>" . $return_data -> forecasts[$x] -> code . "</th>";
-                            //     echo "</tr>";
-                            //    echo "</table>";
-                            //    echo "-----------------";
-                            //     }
+       
              }
                                 
              ?>
