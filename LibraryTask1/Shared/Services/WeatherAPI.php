@@ -90,9 +90,15 @@
              .done(
                // show_fircast(data)
                 function( data ) {
-                    show_fircast(data)
+                    if ( ! data.success) {
 
+                       show_fircast(data)
 
+                    } else {
+                        var error = 'Somethinf went Wrong';
+                       $('day').html('<div class="alert alert-success">' + error + '</div>');
+                    }
+       
           }
           );
        });
