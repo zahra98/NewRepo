@@ -1,5 +1,6 @@
 <?php
-
+//    echo $_SERVER['SERVER_PORT'];
+//    exit();
 
 include 'Database.php';
 
@@ -139,6 +140,7 @@ $conn = OpenCon();
             }
             else if ($activate == 0){
                 echo "your account is not activated";
+             
             }
             //$image = $user->get_userimage;
             $image = $row['user_image'];

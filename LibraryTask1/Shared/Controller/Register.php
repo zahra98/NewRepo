@@ -1,6 +1,8 @@
 <?php
 include 'Database.php';
 include 'MailerCnfg.php';
+$port = $_SERVER['SERVER_PORT'];
+$server = $_SERVER['SERVER_NAME'];
 // use PHPMailer\PHPMailer\PHPMailer;
 // use PHPMailer\PHPMailer\Exception;
 ini_set('display_errors', 1);
@@ -19,6 +21,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
   $pattern = '/^[0-9]{10}$/i';//the phone pattern only 10 digits allowed
   $check_email = filter_var($email, FILTER_VALIDATE_EMAIL);
   $check_phone = preg_match($pattern, $phone);
+
+
+
   if (!($check_email && $check_phone)) {  //if the phone and emails does not match the patterns show an alert msg else continue..
     echo "<script>
     var text= \"Invalid data check your email or phone number\";
@@ -28,6 +33,20 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
   }
 else{
 $token = md5(time().$email);
+
+$sql = "SELECT * FROM users where user_email = '$email' ";
+if($result = mysqli_query($conn, $sql)){
+    if(mysqli_num_rows($result) > 0){
+      
+      echo "<script>
+      var text= \"Email Already exists\";
+          window.confirm(text);
+   window.open('../View/Register.html','_self');
+        </script> ";
+
+    }
+    else{
+
 $sql = "INSERT INTO users (user_name, user_email, user_phone,user_address,user_password,is_admin,token)
 VALUES ('$name' , '$email', '$phone','$address','$encrypted_password','0','$token')";
 
@@ -35,7 +54,7 @@ if ($conn->query($sql) === TRUE) {
  
   $subject = 'Confirm email';
   $body =   'Activate your email:
-      <a href="http://localhost:8888/TrainingTasks/library/LibraryTask1/Shared/Controller/verify-email.php?email=' . $email . 
+      <a href="http://'.$server.':'.$port. '/TrainingTasks/library/LibraryTask1/Shared/Controller/verify-email.php?email=' . $email . 
   '&token=' . $token . '">Confirm email</a>';
  
   MailerConfig($email,$subject,$body);
@@ -44,7 +63,8 @@ if ($conn->query($sql) === TRUE) {
 else {
     echo "Error: " . $sql . "<br>" . $conn->error;
   }
- 
+}
+}
 }
 }
 function test_input($data) {

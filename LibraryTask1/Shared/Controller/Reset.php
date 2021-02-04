@@ -3,6 +3,8 @@ include 'Database.php';
 include 'MailerCnfg.php';
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
+$port = $_SERVER['SERVER_PORT'];
+$server = $_SERVER['SERVER_NAME'];
 $conn = OpenCon();
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
  
@@ -19,7 +21,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 else{
   $subject = 'Reset Email';
   $body =   'Reset your password:
-  <a href="http://localhost:8888/TrainingTasks/library/LibraryTask1/Shared/Controller/NewPassword.php?email=' . $email . '"> Reset Password</a>';
+  <a href="http://'.$server.':'.$port. '/TrainingTasks/library/LibraryTask1/Shared/Controller/NewPassword.php?email=' . $email . '"> Reset Password</a>';
   MailerConfig($email,$subject,$body);
 }
 }
