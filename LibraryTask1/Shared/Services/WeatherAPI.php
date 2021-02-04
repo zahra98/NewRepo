@@ -14,7 +14,7 @@
         type="text/css" />
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet"
         type="text/css" />
-        <script src="Weather.js"></script>
+      
     <link rel="stylesheet" href="../View/LogIn.css">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
@@ -37,14 +37,12 @@
                         <div class="row mb-4 px-3">
                             <h6 class="mb-0 mr-4 mt-2">weather</h6>
                         </div>
-
-
                         <div id="day"></div> <br>
                         <div id="low"></div><br>
                         <div id="high"></div><br>
                         <div id="text"></div><br>
                         <div id="code"></div><br>
-  
+
                         <form name='form1' >
                             <div class="row px-3"> <label class="mb-1">
                                     <h6 class="mb-0 text-sm">longitude</h6>
@@ -100,11 +98,11 @@
                 low = myObj.forecasts[1].low;
                 text = myObj.forecasts[1].text;
                 code = myObj.forecasts[1].code;
-                document.getElementById("day").innerHTML = day;
-                document.getElementById("high").innerHTML = high;
-                document.getElementById("low").innerHTML = low;
-                document.getElementById("text").innerHTML = text;
-                document.getElementById("code").innerHTML = code;
+                document.getElementById("day").innerHTML = 'day:' +' '+day;
+                document.getElementById("high").innerHTML = 'High:' +' ' + high;
+                document.getElementById("low").innerHTML = 'Low:' +' '+low;
+                document.getElementById("text").innerHTML = 'Status:' +' '+text;
+                document.getElementById("code").innerHTML = 'Code:' +' '+code;
               //$("#message").show(3000).html(str).addClass('success');
           });
        });
