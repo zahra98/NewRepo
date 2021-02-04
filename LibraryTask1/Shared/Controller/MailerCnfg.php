@@ -10,8 +10,8 @@ function MailerConfig($useremail,$subject,$body)
       $mail->isSMTP();                                          
       $mail->Host = "ssl://smtp.gmail.com"; 
       $mail->SMTPAuth   = true;                                
-      $mail->Username   = 'YOUR EMAIL';                     
-      $mail->Password   = 'YOUR PASSWORD';                             
+      $mail->Username   = 'zahraabuzahra4@gmail';                     
+      $mail->Password   = 'newpass11610350';                             
       $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;        
       $mail->Port       = 465;   
      
