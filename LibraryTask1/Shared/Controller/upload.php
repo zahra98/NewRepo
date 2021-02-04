@@ -3,7 +3,8 @@ include 'Database.php';
 include 'Constents.php';
 $conn = OpenCon();
 session_start();
-$target_file =  $target_dir .basename($_FILES["fileToUpload"]["name"]);
+$randomNumber = rand();
+$target_file =  $target_dir . $randomNumber .basename($_FILES["fileToUpload"]["name"]);
 $host_name = gethostbyaddr($_SERVER['REMOTE_ADDR']);
 echo $host_name;
 
@@ -43,7 +44,7 @@ if(isset($_POST["submit"])) {
   } else {
     if (move_uploaded_file($_FILES["fileToUpload"]["tmp_name"], $target_file)) {
         $path ="/TrainingTasks/library/LibraryTask1/images/";//to store in database
-        $image_name = htmlspecialchars( basename( $_FILES["fileToUpload"]["name"])); 
+        $image_name = htmlspecialchars( $randomNumber.basename( $_FILES["fileToUpload"]["name"])); 
         $image_path = $path . $image_name;
       $Uid =  $_SESSION['user_id'];
       $sql = "UPDATE users set user_image = '$image_path'  WHERE user_id = '$Uid' ";

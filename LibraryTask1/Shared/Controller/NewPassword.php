@@ -10,7 +10,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     if($_GET){
         if(isset($_GET['email'])){
             $email = $_GET['email'];
-            echo  $email;
+           // echo  $email;
             if($email == ''){
                 unset($email);
             }
@@ -40,8 +40,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                          }
                         }
                      else{
-                        echo $DBPassword;
-                         echo "No match";
+                        // echo $DBPassword;
+                        //  echo "No match";
+                         echo "<script>
+                         var text= \"wrong password\";
+                             window.confirm(text);
+                           </script> ";
                      }
                     }
                 } else{
@@ -74,7 +78,7 @@ CloseCon($conn);
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.bundle.min.js"></script>
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
-    <link rel="stylesheet" href="/TrainingTasks/MyTask1/LibraryTask1/Shared/View/LogIn.css">
+    <link rel="stylesheet" href="../View/LogIn.css">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
  
 </head>

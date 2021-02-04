@@ -1,8 +1,11 @@
 <?php
 include 'Database.php';
 include 'MailerCnfg.php';
-use PHPMailer\PHPMailer\PHPMailer;
-use PHPMailer\PHPMailer\Exception;
+// use PHPMailer\PHPMailer\PHPMailer;
+// use PHPMailer\PHPMailer\Exception;
+ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
+error_reporting(E_ALL);
 $conn = OpenCon();
 $name = $email = $phone = $address = $passsword = "";
 
@@ -23,22 +26,25 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
  window.open('../View/Register.html','_self');
       </script> ";
   }
-
 else{
 $token = md5(time().$email);
 $sql = "INSERT INTO users (user_name, user_email, user_phone,user_address,user_password,is_admin,token)
 VALUES ('$name' , '$email', '$phone','$address','$encrypted_password','0','$token')";
+
 if ($conn->query($sql) === TRUE) {
+ 
   $subject = 'Confirm email';
   $body =   'Activate your email:
-      <a href="TrainingTasks/MyTask1/LibraryTask1/Shared/Controller/verify-email.php?email=' . $r . 
+      <a href="http://localhost:8888/TrainingTasks/library/LibraryTask1/Shared/Controller/verify-email.php?email=' . $email . 
   '&token=' . $token . '">Confirm email</a>';
+ 
   MailerConfig($email,$subject,$body);
+  
 }
 else {
     echo "Error: " . $sql . "<br>" . $conn->error;
   }
-
+ 
 }
 }
 function test_input($data) {

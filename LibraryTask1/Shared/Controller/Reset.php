@@ -19,7 +19,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 else{
   $subject = 'Reset Email';
   $body =   'Reset your password:
-  <a href="TrainingTasks/MyTask1/LibraryTask1/Shared/Controller/NewPassword.php?email=' . $email . '"> Reset Password</a>';
+  <a href="http://localhost:8888/TrainingTasks/library/LibraryTask1/Shared/Controller/NewPassword.php?email=' . $email . '"> Reset Password</a>';
   MailerConfig($email,$subject,$body);
 }
 }

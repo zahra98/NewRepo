@@ -1,8 +1,9 @@
 <?php
 include 'LibraryTask1/vendor/autoload.php';
-include '/Applications/MAMP/htdocs/TrainingTasks/MyTask1/LibraryTask1/vendor/phpmailer/phpmailer/src/PHPMailer.php';
-include '/Applications/MAMP/htdocs/TrainingTasks/MyTask1/LibraryTask1/vendor/phpmailer/phpmailer/src/SMTP.php';
+include '../../vendor/phpmailer/phpmailer/src/PHPMailer.php';
+include '../../vendor/phpmailer/phpmailer/src/SMTP.php';
 use PHPMailer\PHPMailer\PHPMailer;
+ use PHPMailer\PHPMailer\Exception;
 function MailerConfig($useremail,$subject,$body)
 {
     $mail = new PHPMailer(true);
@@ -10,7 +11,7 @@ function MailerConfig($useremail,$subject,$body)
       $mail->isSMTP();                                          
       $mail->Host = "ssl://smtp.gmail.com"; 
       $mail->SMTPAuth   = true;                                
-      $mail->Username   = 'zahraabuzahra4@gmail';                     
+      $mail->Username   = 'zahraabuzahra4@gmail.com';                     
       $mail->Password   = 'newpass11610350';                             
       $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;        
       $mail->Port       = 465;   

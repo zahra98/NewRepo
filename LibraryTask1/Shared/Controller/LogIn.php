@@ -21,9 +21,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                  $_SESSION['user_id'] = $id;
              }
              else{
-                 echo "No match";
-                 header("Location: ../View/LogIn.html");
-                 exit();
+                echo "<script>
+                var text= \"Email and password doesnt match \";
+                    window.confirm(text);
+             window.open('../View/LogIn.html','_self');
+                  </script> ";
+                //  header("Location: ../View/LogIn.html");
+                //  exit();
              }
             }
         } else{
@@ -95,19 +99,29 @@ tr:nth-child(even) {
             <div class="row d-flex">
                 <div class="col-lg-6">
                     <div class="card1 pb-5">
-                  
+                    <button type="submit" name = "logout" onclick=" LogOut()" class="btn btn-blue text-center">Log Out</button>
+  
                         <div class="row px-3 justify-content-center mt-4 mb-5 border-line"> <img src="https://thumbs.dreamstime.com/z/librarian-online-service-platform-knowledge-education-idea-llibrary-bookshelves-guid-isolated-vector-illustration-191844276.jpg" class="image"> </div>
                     </div>
                 </div>
+                <script type="text/javascript">
+                        function LogOut() {
+window.close();
+                            window.open('../View/LogIn.html','_self');
 
+                      
+                         }
+                       </script>
                
                 <div class="col-lg-6">
+               
                     <div class="row mb-4 px-3">
                         <h6 class="mb-0 mr-4 mt-2">
+                         
 <?php 
-ini_set('display_errors', 1);
-ini_set('display_startup_errors', 1);
-error_reporting(E_ALL);
+// ini_set('display_errors', 1);
+// ini_set('display_startup_errors', 1);
+// error_reporting(E_ALL);
 include '../Model/User.php';
 $conn = OpenCon();
  session_start();
@@ -126,8 +140,8 @@ $conn = OpenCon();
             else if ($activate == 0){
                 echo "your account is not activated";
             }
-            $image = $user->get_userimage;
-            //$image = $row['user_image'];
+            //$image = $user->get_userimage;
+            $image = $row['user_image'];
             echo "<table>";
             echo "<tr>";
             echo "<th>";
