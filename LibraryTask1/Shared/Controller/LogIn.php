@@ -1,5 +1,8 @@
 <?php
+
+
 include 'Database.php';
+
 $conn = OpenCon();
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
@@ -102,13 +105,19 @@ tr:nth-child(even) {
                     <div class="row mb-4 px-3">
                         <h6 class="mb-0 mr-4 mt-2">
 <?php 
+ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
+error_reporting(E_ALL);
+include '/Applications/MAMP/htdocs/TrainingTasks/library/LibraryTask1/Shared/Model/User.php';
 $conn = OpenCon();
  session_start();
+ $user = new User();
  $user_id2 = $_SESSION['user_id'];
-
  $sql = "SELECT * FROM users where user_id = '$user_id2' ";
  if($result = mysqli_query($conn, $sql)){
      if(mysqli_num_rows($result) > 0){
+        $user->set_user($row['user_name'],$row['user_email'],$row['user_phone'],$row['user_address'],$row['user_image']);
+
           while($row = mysqli_fetch_array($result)){
             $activate = $row['confirmation'];
             if($activate == 1){
@@ -117,13 +126,14 @@ $conn = OpenCon();
             else if ($activate == 0){
                 echo "your account is not activated";
             }
-            $image = $row['user_image'];
+            $image = $user->get_userimage;
+            //$image = $row['user_image'];
             echo "<table>";
             echo "<tr>";
             echo "<th>";
             echo "<img src='".$image."' width = '100%'  >";
             echo "</th >";
-            echo "<tr >";
+            echo "<tr>";
 
             echo "<table   >";
             echo "<tr>";

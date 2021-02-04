@@ -13,8 +13,9 @@ class User {
     $this->address = $address;
     $this->image = $image;
   }
-  function get_user() {
-    return $this->name;
+  function get_userimage() {
+    return $this->image;
   }
 }
+
 ?>
